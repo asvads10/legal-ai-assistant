@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚖️ Legal AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚖️ Legal AI Assistant</h1>
+            <p class="subtitle">Parse legal documents • Extract clauses • Assess risks • Generate structured output</p>
+        </header>
+
+        <div class="main-grid">
+            <section class="input-section">
+                <div class="section-header">
+                    <h2>Document Input</h2>
+                    <div class="sample-buttons">
+                        <button class="btn-secondary" onclick="loadSample('nda')">Load NDA</button>
+                        <button class="btn-secondary" onclick="loadSample('service')">Load Service Agreement</button>
+                        <button class="btn-secondary" onclick="clearInput()">Clear</button>
+                    </div>
+                </div>
+                <textarea 
+                    id="documentInput" 
+                    placeholder="Paste your legal document here...
+
+Try the sample documents or paste any contract, agreement, or legal text to see it parsed and analyzed."
+                ></textarea>
+                <button class="btn-primary" onclick="analyzeDocument()">🔍 Analyze Document</button>
+            </section>
+
+            <section class="output-section">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('visual', this)">📊 Visual Analysis</button>
+                    <button class="tab" onclick="switchTab('json', this)">{ } JSON Output</button>
+                    <button class="tab" onclick="switchTab('highlights', this)">🎨 Highlighted Text</button>
+                </div>
+
+                <div id="visualTab" class="tab-content active">
+                    <div id="visualOutput" class="visual-output">
+                        <div class="placeholder">
+                            <div class="placeholder-icon">⚖️</div>
+                            <p>Analyze a document to see results</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="jsonTab" class="tab-content">
+                    <div class="json-controls">
+                        <button class="btn-secondary" onclick="copyJSON(this)">📋 Copy JSON</button>
+                        <button class="btn-secondary" onclick="downloadJSON()">💾 Download</button>
+                    </div>
+                    <pre id="jsonOutput" class="json-output"></pre>
+                </div>
+
+                <div id="highlightsTab" class="tab-content">
+                    <div id="highlightedText" class="highlighted-text"></div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>⚠️ Educational purposes only • Not legal advice • Consult a qualified attorney for legal matters</p>
+        </footer>
+    </div>
+
+    <script src="legal-parser.js"></script>
+    <script src="samples.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
